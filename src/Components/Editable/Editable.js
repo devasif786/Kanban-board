@@ -4,7 +4,9 @@ import { X } from 'react-feather'
 
 export default function Editable(props) {
     const [showEdit, setshowEdit]=useState(false)
-  return (
+    const [inputValue,setInputValue]=useState("")
+   
+    return (
     <div className={style.editable}>
     {
         showEdit ? (
@@ -13,11 +15,15 @@ export default function Editable(props) {
     className={style.editable_edit}
      onSubmit={(event)=>{
         event.preventDefault()
-      if(props.onSubmit)props.onSubmit()
+
+      if(props.onSubmit)props.onSubmit(inputValue)
+      setshowEdit(false)
+      setInputValue("")
       }}>
-        <input type="text" 
-        autoFocus
-        defaultValue={props.text}
+        <input autoFocus type="text" 
+        
+        value={inputValue}
+        onChange={(e)=>setInputValue(e.target.value)}
         placeholder={props.placeholder || "Enter Item"}/>
         <div className={style.editable_edit_footer}>
             <button type="submit">{props.buttonText || "ADD"}</button>
