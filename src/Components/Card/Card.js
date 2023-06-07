@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import style from './Card.module.css'
-import { CheckSquare, Clock, MoreHorizontal } from 'react-feather'
+import { CheckSquare, Clock, MoreHorizontal, Trash2 } from 'react-feather'
 import Chip from '../Chip/Chip'
 import Dropdown from "../Dropdown/Dropdown";
-export default function Card() {
+export default function Card(props) {
   const [showDropdown,setshowDropdown]=useState(false)
   function hanldeShow(){
     if(showDropdown==true){
@@ -13,10 +13,21 @@ export default function Card() {
     }
   }
   return (
-    <div className={style.card}>Card
+    <div className={style.card} 
+   draggable
+   onDragEnd={()=>props.handleDragEnd(props.card?.id,props.boardId)}
+   handleDragEnter
+   onDragEnter={()=>props.handleDragEnter(props.card?.id,props.boardId)}
+   >
+
+    
     <div className={style.card_top}>
         <div className={style.card_top_labels}>
-      <Chip text="Frontend" color="green"/>
+          {props.card?.labels?.map((item,index)=>(
+            <Chip key={index}text={item.text}
+            color={item.color}/>
+          ))}
+      {/* <Chip text="Frontend" color="green"/> */}
       {/* <Chip close text="Frontend" color="green"/> */}
       
         </div>
@@ -27,7 +38,7 @@ export default function Card() {
           
           >
            <div className={style.card_dropdown}>
-           <p>Delete Board</p>
+           <p onClick={()=>props.removeCard(props.card?.id,props.boardId)}>Delete<Trash2/></p>
            </div>  
          </Dropdown> 
         )}
@@ -35,10 +46,13 @@ export default function Card() {
         </div>
         </div>
         <div className={style.card_title}>
-          hello sir 
+          {props.card?.title}
         </div>
         <div className={style.card_footer}>
-          <p><Clock/>29 sep</p>
+          {props.card?.date &&(
+            <p><Clock/>{props.card?.date}</p>
+          )}
+          
           <p> <CheckSquare/>1/4</p>
         </div>
         </div>

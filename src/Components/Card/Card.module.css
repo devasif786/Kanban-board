@@ -53,12 +53,20 @@
     cursor: pointer;
 }
 .card_dropdown{
-    background-color: rgb(226, 243, 237);
-    width:100px;
-   padding: 2px;
+    background-color: rgb(245, 238, 237);
+    width:70px;
+    height: 30px ;
    border-radius: 4px;
-   box-shadow: 2px 0 4px 0 black;  
+   box-shadow: 2px 0 4px 0 black;   
 }
 .card_dropdown p{
     cursor: pointer;
+    font-size:small;
+}
+.card_dropdown:hover{
+    
+    color: red;
+   
+   
+
 }
