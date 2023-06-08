@@ -3,6 +3,7 @@ import './App.css';
 import Board from './Components/Board/Board';
 import Editable from './Components/Editable/Editable';
 import { useState } from 'react';
+import { getActiveElement } from '@testing-library/user-event/dist/utils';
 
 function App() {
 
@@ -42,7 +43,7 @@ const addCard=(title,bid)=>{
     title,
     labels:[],
     task:[],
-    date:"",
+    date: new Date().toDateString(),
     desc:"",
   }
   const index=boards.findIndex(item=>item.id===bid)
@@ -78,17 +79,17 @@ const removeBoard=(bid)=>{
 }
 const handleDragEnd=(cid,bid)=>{
   let s_bIndex,s_cIndex,t_bIndex,t_cIndex
-  s_bIndex=boards.findIndex(item=>item.id==bid)
-  if(s_bIndex<0)return
+  s_bIndex=boards.findIndex((item)=>item.id===bid)
+ 
 
-  s_cIndex=boards[s_bIndex].cards?.findIndex(item=>item.id==cid)
-  if(s_cIndex<0)return
+  s_cIndex=boards[s_bIndex].cards?.findIndex((item)=>item.id===cid)
+ 
   
-  t_bIndex=boards.findIndex(item=>item.id==target.bid)
-  if(t_bIndex<0)return
+  t_bIndex=boards.findIndex((item)=>item.id===target.bid)
 
-  t_cIndex=boards[t_bIndex].cards?.findIndex(item=>item.id==target.cid)
-  if(t_cIndex<0)return
+
+  t_cIndex=boards[t_bIndex].cards?.findIndex((item)=>item.id==target.cid)
+ 
   const tempBoards=[...boards]
   const tempCard=tempBoards[s_bIndex].cards[s_cIndex]
 tempBoards[s_bIndex].cards.splice(s_cIndex,1)
@@ -138,3 +139,4 @@ const handleDragEnter=(cid,bid)=>{
 }
 
 export default App;
+

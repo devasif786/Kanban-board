@@ -3,8 +3,10 @@ import style from './Card.module.css'
 import { CheckSquare, Clock, MoreHorizontal, Trash2 } from 'react-feather'
 import Chip from '../Chip/Chip'
 import Dropdown from "../Dropdown/Dropdown";
+import Cardinfo from './Cardinfo/Cardinfo';
 export default function Card(props) {
   const [showDropdown,setshowDropdown]=useState(false)
+  const [showModal,setShowModal]=useState(false)
   function hanldeShow(){
     if(showDropdown==true){
       setshowDropdown(false)
@@ -13,12 +15,16 @@ export default function Card(props) {
     }
   }
   return (
+    <>
+     {showModal && <Cardinfo onClose={()=>setShowModal(false)}/>}
     <div className={style.card} 
    draggable
    onDragEnd={()=>props.handleDragEnd(props.card?.id,props.boardId)}
    handleDragEnter
    onDragEnter={()=>props.handleDragEnter(props.card?.id,props.boardId)}
+   
    >
+   
 
     
     <div className={style.card_top}>
@@ -45,7 +51,7 @@ export default function Card(props) {
        
         </div>
         </div>
-        <div className={style.card_title}>
+        <div className={style.card_title} onClick={()=>setShowModal(true)}>
           {props.card?.title}
         </div>
         <div className={style.card_footer}>
@@ -56,5 +62,6 @@ export default function Card(props) {
           <p> <CheckSquare/>1/4</p>
         </div>
         </div>
+        </>
   )
 }
