@@ -1,0 +1,16 @@
+.wrapper {
+    width: 34rem;
+    height: 4rem;
+    border: none;
+    background-color: #dcdfe4;
+    cursor: pointer;
+    margin-left: 2rem;
+  }
+  .wrapper:hover{
+      background-color: #d0d4db;
+  }
+  p{
+    
+      color: #4a5974;
+      padding-left: 1rem;
+  }
