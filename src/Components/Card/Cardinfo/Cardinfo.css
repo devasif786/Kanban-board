@@ -69,9 +69,11 @@ background-color: limegreen;
     padding: 8px 0;
     gap: 10px;
 }
-.cardinfo_task input{
+.cardinfo_task input,
+.cardinfo_task svg{
     width: 14px;
     height: 14px;
+    cursor: pointer;
 }
 .cardinfo_task p{
     line-height: 20px;
