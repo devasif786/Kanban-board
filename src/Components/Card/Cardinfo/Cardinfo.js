@@ -3,6 +3,8 @@ import Modal from "../../Modal/Modal";
 import "./Cardinfo.css";
 import { Calendar, CheckSquare, List, Tag, Trash, Type } from "react-feather";
 import Editable from "../../Editable/Editable";
+import CardDescription from "./CardDescription/CardDescription";
+
 
 export default function Cardinfo(props) {
   const colors=[
@@ -38,11 +40,13 @@ export default function Cardinfo(props) {
            Description
           </div>
           <div className="cardinfo_box_body">
-          <Editable
+          {/* <Editable
           text ={"Your Description Here"}
           placeholder="Enter Description"
           buttonText="Set Description"
-          />
+          /> */}
+        <CardDescription/>
+          
         </div>
         </div>
 
@@ -105,9 +109,9 @@ export default function Cardinfo(props) {
          />
         
         </div>
-
       </div>
       </div>
+      
     </Modal>
   );
 }

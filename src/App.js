@@ -4,6 +4,7 @@ import Board from './Components/Board/Board';
 import Editable from './Components/Editable/Editable';
 import { useState } from 'react';
 import { getActiveElement } from '@testing-library/user-event/dist/utils';
+import Navbar from './Components/Header/Navbar';
 
 function App() {
 
@@ -106,7 +107,7 @@ const handleDragEnter=(cid,bid)=>{
   return (
     <div className="App">
      <div className="app_navbar">
-      <h2>Kanban</h2>
+      <Navbar/>
      </div>
      <div className="app_outer">
       <div className="app_boards">

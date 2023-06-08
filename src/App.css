@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
   
 }
 .app_navbar{
-  padding: 30px;
+  width:100vw;
   box-shadow: 0 1px 20px rgba(56, 40, 40, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: sticky;
