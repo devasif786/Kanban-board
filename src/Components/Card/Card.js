@@ -20,7 +20,7 @@ export default function Card(props) {
     <div className={style.card} 
    draggable
    onDragEnd={()=>props.handleDragEnd(props.card?.id,props.boardId)}
-   handleDragEnter
+   
    onDragEnter={()=>props.handleDragEnter(props.card?.id,props.boardId)}
    
    >
