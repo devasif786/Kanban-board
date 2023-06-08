@@ -41,7 +41,7 @@ export default function Board(props) {
         removeCard={props.removeCard}
         boardId={props.board?.id}
         handleDragEnd={props.handleDragEnd}
-          handleDragEnter={props.handleDragEnter}
+        handleDragEnter={props.handleDragEnter}
         />
         ))}
         

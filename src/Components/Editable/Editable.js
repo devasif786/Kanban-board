@@ -4,7 +4,7 @@ import { X } from 'react-feather'
 
 export default function Editable(props) {
     const [showEdit, setshowEdit]=useState(false)
-    const [inputValue,setInputValue]=useState("")
+    const [inputValue,setInputValue]=useState(props.default || "")
    
     return (
     <div className={style.editable}>
