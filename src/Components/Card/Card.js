@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import style from './Card.module.css'
-import { CheckSquare, Clock, MoreHorizontal, Trash2 } from 'react-feather'
+import { CheckSquare, Clock, MoreHorizontal, Trash2,} from 'react-feather'
 import Chip from '../Chip/Chip'
 import Dropdown from "../Dropdown/Dropdown";
 import Cardinfo from './Cardinfo/Cardinfo';
+import { Edit2 } from 'react-feather'
 export default function Card(props) {
   const [showDropdown,setshowDropdown]=useState(false)
   const [showModal,setShowModal]=useState(false)
@@ -16,7 +17,11 @@ export default function Card(props) {
   }
   return (
     <>
-     {showModal && <Cardinfo onClose={()=>setShowModal(false)}/>}
+
+     {showModal && <Cardinfo card={props.card} onClose={()=>setShowModal(false)}
+     updateCard={props.updateCard}
+     boardId={props.boardId}
+     />}
     <div className={style.card} 
    draggable
    onDragEnd={()=>props.handleDragEnd(props.card?.id,props.boardId)}
@@ -38,28 +43,21 @@ export default function Card(props) {
       
         </div>
         <div className={style.card_top_more}  onClick={hanldeShow}  >
-        <MoreHorizontal />
-        {showDropdown&&(
-           <Dropdown
-          
-          >
-           <div className={style.card_dropdown}>
-           <p onClick={()=>props.removeCard(props.card?.id,props.boardId)}>Delete<Trash2/></p>
-           </div>  
-         </Dropdown> 
-        )}
+        <Trash2   onClick={()=>props.removeCard(props.card?.id,props.boardId)}/>
+       
        
         </div>
         </div>
         <div className={style.card_title} onClick={()=>setShowModal(true)}>
           {props.card?.title}
+          <div><Edit2/></div>
         </div>
         <div className={style.card_footer}>
           {props.card?.date &&(
             <p><Clock/>{props.card?.date}</p>
           )}
           
-          <p> <CheckSquare/>1/4</p>
+         
         </div>
         </div>
         </>

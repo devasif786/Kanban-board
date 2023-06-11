@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import style from "./CardDescription.module.css";
 import { BiInfoCircle } from "react-icons/bi";
 import { TbShare3 } from "react-icons/tb";
@@ -12,9 +12,19 @@ import { HiOutlinePlusSm } from "react-icons/hi";
 import { GrAttachment } from "react-icons/gr";
 import { VscMarkdown } from "react-icons/vsc";
 import DescriptionInitialBox from "./DescriptionInitialBox";
-export default function CardDescription() {
+export default function CardDescription(props) {
+  const [name,setName]=useState(  JSON.parse(localStorage.getItem("prac-k")) || '')
   const [show, setShow] = useState(false);
 
+  function handletype(e){
+setName(e.target.value)
+  }
+
+
+
+  useEffect(() => {
+    localStorage.setItem("prac-k", JSON.stringify(name));
+  }, [name]);
   return (
     <div className={style.wrapper}>
       
@@ -51,6 +61,8 @@ export default function CardDescription() {
               cols="50"
               rows="13"
               placeholder="Need formatting help? type /help."
+              value={name}
+              onChange={handletype}
             ></textarea>
           </div>
           <div className={style.btns}> 
@@ -67,7 +79,11 @@ export default function CardDescription() {
           </div>
         </>
       ) : (
+        <>
+       
         <DescriptionInitialBox onclick={() => setShow(true)} />
+        <h4>{name}</h4>
+        </>
       )}
     </div>
   );

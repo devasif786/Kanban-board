@@ -34,6 +34,3 @@ body::-webkit-scrollbar {
 .app_boards_board{
   width: 300px;
 }
-.app_boards_board:hover{
-  background-color: green;
-}

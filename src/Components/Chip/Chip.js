@@ -5,7 +5,7 @@ export default function Chip(props) {
   return (
     <div className={style.chip} style={{backgroundColor:props.color}}>
 {props.text}
-{props.close && <X onClick={props.onClose ? props.onClose():""}/>}
+{props.close && <X onClick={()=>props.onClose ? props.onClose():""}/>}
     </div>
   )
 }

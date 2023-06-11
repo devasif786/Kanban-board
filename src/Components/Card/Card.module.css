@@ -2,9 +2,9 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background-color: #fff;
-    border-radius: 10px;
+    gap: 5px;
+    background-color: #c4bebe;
+    min-width: 200px;
 }
 .card_top{
     display: flex;
@@ -25,15 +25,26 @@
 }
 .card:hover .card_top svg{
     opacity: 1;
+    color: red;
     transition:200ms;
 }
 .card_title{
-    flex: 1;
+   display: flex;
   font-weight: bold;
   font-size: 1rem;
-  line-height: 1.875rem;
+  line-height: 1rem;
+  gap: 160px;
 
 }
+.card_title svg{
+    opacity: 0; 
+}
+.card:hover .card_title svg{
+    opacity: 1;
+    color: rgb(242, 247, 247);
+    transition:200ms;
+}
+
 .card_footer{
     display:flex;
     justify-content: space-between;
@@ -57,7 +68,7 @@
     width:70px;
     height: 30px ;
    border-radius: 4px;
-   box-shadow: 2px 0 4px 0 black;   
+
 }
 .card_dropdown p{
     cursor: pointer;

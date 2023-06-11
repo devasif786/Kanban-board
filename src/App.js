@@ -2,38 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Board from './Components/Board/Board';
 import Editable from './Components/Editable/Editable';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getActiveElement } from '@testing-library/user-event/dist/utils';
 import Navbar from './Components/Header/Navbar';
 
 function App() {
 
-  const [boards,setBoards]=useState([{
-    id:Date.now()+Math.random()*2,
-    title:"To do",
-    cards:[{
-      id:Date.now()+Math.random()*2,
-      title:"Card 1",
-      task:[],
-      labels:[{
-        text:"frintend",
-        color:"lightgreen",
-      }],
-      desc:"hello function up",
-      date:"",
-    },
-    {
-      id:Date.now()+Math.random()*2,
-      title:"Card 2",
-      task:[],
-      labels:[{
-        text:"backend",
-        color:"green",
-      }],
-      desc:"hello function up",
-      date:"",
-    }]
-  }])
+  const [boards,setBoards]=useState( JSON.parse(localStorage.getItem("prac-kanban")) ||
+  []);
   const [target,setTarget]=useState({
     cid:"",
     bid:"",
@@ -43,7 +19,7 @@ const addCard=(title,bid)=>{
     id:Date.now()+Math.random(),
     title,
     labels:[],
-    task:[],
+   
     date: new Date().toDateString(),
     desc:"",
   }
@@ -104,6 +80,22 @@ const handleDragEnter=(cid,bid)=>{
   })
 }
 
+const updateCard=(cid,bid,card)=>{
+  const bIndex=boards.findIndex(item=>item.id===bid)
+  if(bIndex<0)return;
+
+  const cIndex=boards[bIndex].cards.findIndex(item=>item.id===cid)
+  if(cIndex<0)return;
+
+  const tempBoards=[...boards]
+    tempBoards[bIndex].cards[cIndex]=card;
+    setBoards(tempBoards)
+}
+
+
+useEffect(() => {
+  localStorage.setItem("prac-kanban", JSON.stringify(boards));
+}, [boards]);
   return (
     <div className="App">
      <div className="app_navbar">
@@ -119,6 +111,7 @@ const handleDragEnter=(cid,bid)=>{
           removeCard={removeCard}
           handleDragEnd={handleDragEnd}
           handleDragEnter={handleDragEnter}
+          updateCard={updateCard}
           />
           
           ))}

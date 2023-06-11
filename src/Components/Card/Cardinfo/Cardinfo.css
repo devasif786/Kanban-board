@@ -79,3 +79,8 @@ background-color: limegreen;
     line-height: 20px;
     flex: 1;
 }
+.cardinfo_box_labels{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
