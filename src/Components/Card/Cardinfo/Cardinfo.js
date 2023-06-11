@@ -139,7 +139,7 @@ export default function Cardinfo(props) {
           placeholder="Enter Description"
           buttonText="Set Description"
           /> */}
-        <Activity/>
+      
           
         </div>
         </div>

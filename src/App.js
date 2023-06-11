@@ -97,6 +97,7 @@ useEffect(() => {
   localStorage.setItem("prac-kanban", JSON.stringify(boards));
 }, [boards]);
   return (
+    
     <div className="App">
      <div className="app_navbar">
       <Navbar/>

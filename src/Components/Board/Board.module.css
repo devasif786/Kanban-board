@@ -40,11 +40,13 @@
 }
 
 .board_top_title{
+    color: black;
     font-weight: bold;
     font-size: 1rem;
     display: flex;
     gap: 5px;
     align-items: center;
+    text-transform: uppercase;
 }
 .board_top_title span{
     color: rgb(145, 145, 145);
