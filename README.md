@@ -41,7 +41,7 @@ Open https://kanban-lmqs.onrender.com in your browser to view the application.
 Data Structure
 List =[
     {
-        id: 'uuidv4',
+        id: 'Date.now() + Math.random(),',
         title: 'Board title',
         Cards: [
             id: '22r0h9i444t'
@@ -49,7 +49,7 @@ List =[
             title: 'Card Title,
             tasks: [
                 {
-                    id: 'uuidv4',
+                    id: 'Date.now() + Math.random(),',
                     title: 'Title 1'
                 }
             ],
