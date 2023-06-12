@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Board from './Components/Board/Board';
 import Editable from './Components/Editable/Editable';
