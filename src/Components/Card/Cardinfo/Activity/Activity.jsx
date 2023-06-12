@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "./CardDescription.module.css";
+import style from "./Activity.module.css";
 import { BiInfoCircle } from "react-icons/bi";
 import { TbShare3 } from "react-icons/tb";
 import { RiMenu2Line, RiFontSize, RiGalleryFill } from "react-icons/ri";
@@ -11,20 +11,50 @@ import { RxFontItalic } from "react-icons/rx";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { GrAttachment } from "react-icons/gr";
 import { VscMarkdown } from "react-icons/vsc";
-import DescriptionInitialBox from "./DescriptionInitialBox";
-export default function CardDescription(props) {
-  const [name, setName] = useState(
-    JSON.parse(localStorage.getItem("prac-k")) || ""
-  );
-  const [show, setShow] = useState(false);
 
-  function handletype(e) {
-    setName(e.target.value);
-  }
+export default function Activity() {
+  const [show, setShow] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("prac-k", JSON.stringify(name));
-  }, [name]);
+    const storedComments = JSON.parse(localStorage.getItem("comments"));
+    if (storedComments && storedComments.length > 0) {
+      setComments(storedComments);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }, [comments]);
+
+  const handleInputChange = (event) => {
+    setNewComment(event.target.value);
+  };
+
+  const saveComment = () => {
+    if (newComment.trim() !== "") {
+      const updatedComments = [...comments];
+      updatedComments.push(newComment);
+      setComments(updatedComments);
+      setNewComment("");
+      setShow(false);
+    } else {
+      alert("You cannot set an empty comment!");
+    }
+  };
+
+  const editComment = (index) => {
+    setNewComment(comments[index]);
+    setShow(true);
+  };
+
+  const deleteComment = (index) => {
+    const updatedComments = [...comments];
+    updatedComments.splice(index, 1);
+    setComments(updatedComments);
+  };
+
   return (
     <div className={style.wrapper}>
       {show ? (
@@ -49,39 +79,45 @@ export default function CardDescription(props) {
               </div>
               <div className={style.right_icons}>
                 <GrAttachment className={style.attachment} />
-                <VscMarkdown className={style.mark_down} />
                 <BsQuestionLg className={style.question_mark} />
               </div>
             </div>
             <textarea
               name=""
               id=""
-              cols="50"
-              rows="13"
-              placeholder="Need formatting help? type /help."
-              value={name}
-              onChange={handletype}
+              cols="59"
+              rows="2"
+              placeholder="Write a comment..."
+              value={newComment}
+              onChange={handleInputChange}
             ></textarea>
           </div>
           <div className={style.btns}>
-            <button className={style.save_btn} onClick={() => setShow(false)}>
+            <button className={style.save_btn} onClick={saveComment}>
               Save
             </button>
-            <button className={style.cancel_btn} onClick={() => setShow(false)}>
-              Cancel
-            </button>
-            <span className={style.feedback}>
-              <TbShare3 className={style.share_icon} />
-              Share feedback
-            </span>
           </div>
         </>
       ) : (
         <>
-          <DescriptionInitialBox onclick={() => setShow(true)} />
-          <h4>{name}</h4>
+          <div className={style.activity_box} onClick={() => setShow(true)}>
+            <p>Write a comment...</p>
+          </div>
         </>
       )}
+      <div>
+        {comments.map((comment, index) => (
+          <div className={style.comment} key={index}>
+            {comment}
+            <span className={style.edit} onClick={() => editComment(index)}>
+              Edit
+            </span>
+            <span className={style.delete} onClick={() => deleteComment(index)}>
+              Delete
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

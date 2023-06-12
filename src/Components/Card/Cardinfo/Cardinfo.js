@@ -7,7 +7,7 @@ import CardDescription from "./CardDescription/CardDescription";
 import Chip from '../../Chip/Chip'
 import { RxActivityLog } from "react-icons/rx";
 import Activity from "./Activity/Activity";
-
+import {RxCross2} from 'react-icons/rx'
 export default function Cardinfo(props) {
   const colors=[
     "#a8193d",
@@ -51,6 +51,7 @@ export default function Cardinfo(props) {
   },[values])
     return (
     <Modal onClose={() => props.onClose()}>
+       <RxCross2 className='remove' onClick={props.onClose}/>
       <div className="cardinfo">
         <div className="cardinfo_box">
           <div className="cardinfo_box_title">
@@ -64,6 +65,7 @@ export default function Cardinfo(props) {
           buttonText="Set Tittle"
           onSubmit={(value)=>setValues({...values,title:value})}
           />
+         
         </div>
         </div>
           
@@ -140,10 +142,11 @@ export default function Cardinfo(props) {
           buttonText="Set Description"
           /> */}
       
-          
+          <Activity/>
         </div>
         </div>
          </div>
+         
         </div>
 
        

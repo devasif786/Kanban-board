@@ -10,7 +10,7 @@
     align-items: center;
 }
 .modal_content{
-    background-color: antiquewhite;
+    background-color: white;
     border-radius: 3px;
     max-height: 95vh;
     overflow-y: auto;
