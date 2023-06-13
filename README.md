@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+Description:
+    A Kanban board is a visual project management tool that helps teams visualize and track their work. It is typically made up of a physical or digital board that is divided into columns, each of which represents a stage in the team's workflow. The columns are usually labeled with categories like "To Do", "In Progress", and "Done".
+    The Kanban board is used to track work items as they move through each stage of the workflow. Each work item is represented by a card that is placed on the board, and team members can move the cards from one column to another as they work on them. This helps the team to see at a glance which tasks are in progress, which tasks are waiting, and which tasks have been completed.
+    Kanban boards are often used in agile software development, but they can be used in any team or project that involves workflow management. They are particularly useful for teams that want to visualize their work, identify bottlenecks, and continuously improve their processes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features:
 
-## Available Scripts
+    Create and manage the multiple set of tasks that we want to track.
+We can drag and drop these tasks from one set of list to another.
+We can view the set of tasks in the different lists like "to do" , "Progress" and "done".
+Edit and delete the lists and tasks as per our need.
+Assign the different tasks to different members.
+We can view the information related to each task such as title,date,description and label.
+Tech Stack
+ReactJS
+Feather 
+Material UI
+React Icons
+React router
+board = [ list : {} ]
 
-In the project directory, you can run:
+list = { list_id:"random id", list_title:"todo/in-progress/done", list_createdAt: "current date and time", card: [ { id: "id", createdAt: "current date and time", title:"task title", description:"task description" } ] }
 
-### `npm start`
+list_id:[{ label: "Math.random()", type: "number", default: "null" }]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+list_title:[{ label: "todo/in-progress/done", type: "String", default: "" }]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+card :{ label: "card", type: "array", }
 
-### `npm test`
+Installation
+To install and run the application locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone this repository to your local machine
+Run npm install to install all dependencies
+Run npm run dev to start the development server
+Open http://localhost:5173/ in your browser to view the application.
+And you can view the application successfully in your browser.
+Deployment Site link
+Open https://kanban-lmqs.onrender.com in your browser to view the application.
 
-### `npm run build`
+Data Structure
+List =[
+    {
+        id: 'Date.now() + Math.random(),',
+        title: 'Board title',
+        Cards: [
+            id: '22r0h9i444t'
+            
+            title: 'Card Title,
+            tasks: [
+                {
+                    id: 'Date.now() + Math.random(),',
+                    title: 'Title 1'
+                }
+            ],
+            desc: 'Description',
+            date: new Date()
+        ]
+    }
+]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Collaborators       
+1> Asif Mondal  
 
-### `npm run eject`
+2> Aryan Jamwal  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3> Pragati Srivastava
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4> Shubham Jadhav
