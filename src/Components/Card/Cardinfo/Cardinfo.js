@@ -88,7 +88,7 @@ export default function Cardinfo(props) {
         </div>
         </div>
 
-        <div className="cardinfo_box">
+       <div className="cardinfo_box">
           <div className="cardinfo_box_title">
             <Calendar/>
            Date
@@ -98,7 +98,7 @@ export default function Cardinfo(props) {
        onChange={(event)=>setValues({...values,date:event.target.value})}
        />
         </div>
-        </div>
+        </div> 
 
         <div className="cardinfo_box">
           <div className="cardinfo_box_title">

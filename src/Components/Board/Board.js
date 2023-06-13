@@ -49,7 +49,7 @@ export default function Board(props) {
 
         <Editable
           className={style.board_cards_add}
-          text="Add Card"
+          text="Add Card "
           placeholder="Enter Card Title"
           onSubmit={(value) => props.addCard(value, props.board?.id)}
         />

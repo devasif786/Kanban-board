@@ -47,18 +47,18 @@ export default function Card(props) {
         </div>
         <div className={style.card_title} onClick={() => setShowModal(true)}>
           {props.card?.title}
-          <div>
+          <div >
             <Edit2 />
           </div>
         </div>
-        <div className={style.card_footer}>
+        {/* <div className={style.card_footer}>
           {props.card?.date && (
             <p>
               <Clock />
               {props.card?.date}
             </p>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );

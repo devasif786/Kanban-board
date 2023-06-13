@@ -38,6 +38,7 @@
   opacity: 0;
 }
 .card:hover .card_title svg {
+  font-size: small;
   opacity: 1;
   color: rgb(7, 7, 7);
   transition: 200ms;

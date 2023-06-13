@@ -13,7 +13,6 @@ export default function Editable(props) {
           className={style.editable_edit}
           onSubmit={(event) => {
             event.preventDefault();
-
             if (props.onSubmit) props.onSubmit(inputValue);
             setshowEdit(false);
             setInputValue("");

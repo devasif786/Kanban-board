@@ -17,6 +17,7 @@
     display:flex;
     flex-direction: column;
     gap:10px;
+    background-color: #ffffff;
    
     
 }
@@ -36,16 +37,19 @@ X :hover{
     background-color: red;
 }
 .editable_edit_footer button{
+    margin-left: 1rem;
+    /* margin-bottom: 0.5rem; */
     outline:none;
     cursor: pointer;
     transition: 200ms;
     padding: 2px 16px;
-    border-radius: 10px;
+    border-radius: 5px;
     border:none;
     color:antiquewhite;
     background-color: rgb(22, 18, 236);
 }
 .editable_edit_footer button:hover{
     
-    background-color: rgb(71, 15, 226);
+    background-color:skyblue;
+    color: black;
 }
