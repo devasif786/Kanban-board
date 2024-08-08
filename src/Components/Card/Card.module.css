@@ -25,14 +25,14 @@
   opacity: 1;
   color: rgb(3, 3, 3);
   transition: 200ms;
+  color: green;
 }
 .card_title {
-  margin-left: 1rem;
   display: flex;
-  font-weight: bold;
   font-size: 1rem;
   line-height: 1rem;
   gap: 160px;
+  color: #002133;
 }
 .card_title svg {
   opacity: 0;
@@ -59,8 +59,8 @@
   align-items: center;
 }
 .card_top_more {
-    margin-right: 1rem;
-    margin-top: 0.5rem;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
   position: relative;
   cursor: pointer;
 }

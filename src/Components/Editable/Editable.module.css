@@ -22,34 +22,37 @@
     
 }
 .editable_edit input{
-    border-radius: 3px;
+    margin-top: 0.2rem;
+    border-radius: 10px;
     outline:none;
     border: 1px solid rgb(7, 46, 46);
     padding:10px;
     font-size: 1rem;
+    width: 16rem;
 }
 .editable_edit_footer{
     display:flex;
     gap: 10px;
-    cursor: pointer;
+    cursor: pointer; 
 }
 X :hover{
     background-color: red;
 }
 .editable_edit_footer button{
+    width: 4rem;
     margin-left: 1rem;
-    /* margin-bottom: 0.5rem; */
+    margin-bottom: 0.2rem;
     outline:none;
     cursor: pointer;
     transition: 200ms;
-    padding: 2px 16px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 20px;
     border:none;
     color:antiquewhite;
-    background-color: rgb(22, 18, 236);
+    /* background-color: rgb(22, 18, 236); */
+    background-color: #023020;
 }
-.editable_edit_footer button:hover{
-    
+.editable_edit_footer button:hover{ 
     background-color:skyblue;
     color: black;
 }

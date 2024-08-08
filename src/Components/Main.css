@@ -2,9 +2,9 @@ body::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
-  body{
+  /* body{
     background-color: blue;
-  }
+  } */
   
   .app{
     display: flex;
@@ -37,7 +37,10 @@ body::-webkit-scrollbar {
   }
   .app_boards_board{
     width: 300px;
+    border-radius: 20px;
+    
   }
   body{
-    background-color: #0a479b;
+    /* background-color: orange; */
+    background-image: url("https://images.pexels.com/photos/3178786/pexels-photo-3178786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   }

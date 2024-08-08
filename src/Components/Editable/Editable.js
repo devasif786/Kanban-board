@@ -26,7 +26,7 @@ export default function Editable(props) {
             placeholder={props.placeholder || "Enter Item"}
           />
           <div className={style.editable_edit_footer}>
-            <button type="submit">{props.buttonText || "ADD"}</button>
+            <button type="submit">{props.buttonText || "Add"}</button>
             <X style={{ color: "red" }} onClick={() => setshowEdit(false)} />
           </div>
         </form>
